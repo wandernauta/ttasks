@@ -1,3 +1,38 @@
 # t
 
 **t** is a bare-bones, completely minimalistic todo list for your command line. It's a port of [tsion](https://github.com/tsion/)'s [do\_stuff](https://github.com/tsion/do_stuff) in C++ and should work pretty much anywhere.
+
+## Usage
+
+    [~]$ t That thing I need to do.
+    Added #1: That thing I need to do.
+    [~]$ t
+    1. That thing I need to do.
+    [~]$ t -e # edit the todo.txt in $EDITOR
+    [~]$ t Another thing.
+    Added #3: Another thing.
+    [~]$ t And another.
+    Added #4: And another.
+    [~]$ t ALL the things.
+    Added #5: ALL the things.
+    [~]$ t
+    1. That thing I need to do.
+    2. That thing I added from -e.
+    3. Another thing.
+    4. And another.
+    5. ALL the things.
+    [~]$ t 2
+    Erased #2: That thing I added from -e.
+    [~]$ t 4
+    Erased #4: And another.
+    [~]$ t
+    1. That thing I need to do.
+    3. Another thing.
+    5. ALL the things.
+    [~]$ t Edit my todo list.
+    Added #2: Edit my todo list.
+    [~]$ t
+    1. That thing I need to do.
+    2. Edit my todo list.
+    3. Another thing.
+    5. ALL the things.
