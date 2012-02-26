@@ -34,9 +34,9 @@ int main(int argc, char* argv[]) {
       std::cout << tl.count() << std::endl;
     } else if (args[1] == "0") {
       std::cout << "Say what?" << std::endl;
-    } else if (atol(argv[1]) != 0) {
+    } else if (atoi(argv[1]) != 0) {
       // Called as 't 3' or similar. Erase the task.
-      tl.erase(atol(argv[1]));
+      tl.erase(atoi(argv[1]));
     } else {
       // Called as 't Walk the dog' or similar.
       // Collect the argument:
