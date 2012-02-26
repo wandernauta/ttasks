@@ -1,0 +1,3 @@
+# t
+
+**t** is a bare-bones, completely minimalistic todo list for your command line. It's a port of [tsion](https://github.com/tsion/)'s [do\_stuff](https://github.com/tsion/do_stuff) in C++ and should work pretty much anywhere.
