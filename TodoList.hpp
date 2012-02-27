@@ -16,7 +16,7 @@ class TodoList {
     void erase(int num);
     std::string get(int num);
     void dump();
-    int count();
+    std::map<int, std::string>::size_type count();
 
     void parse();
     void edit();

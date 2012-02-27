@@ -6,11 +6,10 @@ TodoList::TodoList() {
 }
 
 void TodoList::add(std::string task) {
-  unsigned int taskdesc = task.find_first_not_of("1234567890. ");
-  if (taskdesc == std::string::npos) return;
+  if (task.find_first_not_of("1234567890. ") == std::string::npos) return;
 
   std::cout << "Added #" << first_unset() << ": " << task << std::endl;
-  tasks[first_unset()] = task;
+  tasks.insert(std::make_pair(first_unset(), task));
   write();
 }
 
@@ -40,7 +39,7 @@ void TodoList::dump() {
   }
 }
 
-int TodoList::count() {
+std::map<int, std::string>::size_type TodoList::count() {
   return tasks.size();
 }
 
@@ -59,8 +58,8 @@ void TodoList::parse() {
     getline(ifs, line);
 
     if (line != "") {
-      int taskno = atol(line.c_str());
-      unsigned int taskdesc = line.find_first_not_of("1234567890. ");
+      int taskno = atoi(line.c_str());
+      std::string::size_type taskdesc = line.find_first_not_of("1234567890. ");
       if (taskdesc == std::string::npos) continue;
       tasks[taskno] = std::string(line, taskdesc); 
     }
@@ -85,8 +84,12 @@ void TodoList::write() {
 }
 
 int TodoList::first_unset() {
-  for (int i = 1; i < tasks.rbegin()->first; i++) {
-    if (!tasks.count(i)) return i;
+  if (tasks.size()) {
+    for (int i = 1; i < tasks.rbegin()->first; i++) {
+      if (!tasks.count(i)) return i;
+    }
+    return tasks.rbegin()->first + 1;
+  } else {
+    return 1;
   }
-  return tasks.rbegin()->first + 1;
 }
