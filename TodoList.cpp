@@ -15,9 +15,13 @@ void TodoList::add(std::string task) {
 }
 
 void TodoList::erase(int num) {
-  std::cout << "Erased #" << num << ": " << tasks[num] << std::endl;
-  tasks.erase(num);
-  write();
+  if (tasks.count(num)) {
+    std::cout << "Erased #" << num << ": " << tasks[num] << std::endl;
+    tasks.erase(num);
+    write();
+  } else {
+    std::cerr << "There is no task #" << num << "." << std::endl;
+  }
 }
 
 std::string TodoList::get(int num) {
