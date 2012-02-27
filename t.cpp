@@ -32,11 +32,11 @@ int main(int argc, char* argv[]) {
     } else if (args[1] == "-c") {
       // Called as 't -c'. Count the amount of items in the list.
       std::cout << tl.count() << std::endl;
-    } else if (args[1] == "0") {
-      std::cout << "Say what?" << std::endl;
     } else if (atoi(argv[1]) != 0) {
       // Called as 't 3' or similar. Erase the task.
       tl.erase(atoi(argv[1]));
+    } else if (args[1].find_first_not_of("1234567890. ") == std::string::npos) {
+      std::cout << "Say what?" << std::endl;
     } else {
       // Called as 't Walk the dog' or similar.
       // Collect the argument:
