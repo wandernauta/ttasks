@@ -1,10 +1,8 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <algorithm>
-#include <iterator>
 #include <vector>
-#include <cstring>
+#include <cstdlib>
 
 #include "TodoList.hpp"
 
@@ -42,7 +40,9 @@ int main(int argc, char* argv[]) {
       // Collect the argument:
 
       std::ostringstream oss;
-      std::copy(args.begin() + 1, args.end()-1, std::ostream_iterator<std::string>(oss, " "));
+      for (std::vector<std::string>::iterator it = args.begin()+1; it < args.end()-1; ++it) {
+        oss << *it << " ";
+      }
       oss << args.back();
       tl.add(oss.str());
     }

@@ -1,4 +1,8 @@
 #include "TodoList.hpp"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
 
 TodoList::TodoList() {
   path = std::string(getenv("HOME")) + "/todo.txt";
