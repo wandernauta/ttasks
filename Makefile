@@ -5,7 +5,9 @@ SHELL ?= /bin/sh
 CXXFLAGS ?= -g -ansi -O3 -Wall -Werror -Wextra -Winit-self -Wshadow -Wconversion -pedantic
 INSTALL_PATH ?= /usr/local
 
-all: t.cpp TodoList.hpp TodoList.cpp
+all: t
+
+t: t.cpp TodoList.hpp TodoList.cpp
 	touch ~/todo.txt
 	$(CXX) -o t $(CXXFLAGS) t.cpp TodoList.cpp
 
@@ -21,3 +23,5 @@ install:
 
 uninstall:
 	rm -i $(INSTALL_PATH)/bin/t
+
+.PHONY: clean tags install uninstall
