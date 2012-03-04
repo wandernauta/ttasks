@@ -13,6 +13,7 @@ class TodoList {
     std::string get(int num);
     void dump();
     std::map<int, std::string>::size_type count();
+    void reorder();
 
     void parse();
     void edit();

@@ -42,6 +42,12 @@ Check out this repository, run `make`. Put the resulting binary on your $PATH. D
     2. Edit my todo list.
     3. Another thing.
     5. ALL the things.
+    [~]$ t -r
+    [~]$ t
+    1. That thing I need to do.
+    2. Edit my todo list.
+    3. Another thing.
+    4. ALL the things.
 
 ## License (MIT)
 

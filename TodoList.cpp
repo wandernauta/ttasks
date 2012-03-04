@@ -47,6 +47,20 @@ std::map<int, std::string>::size_type TodoList::count() {
   return tasks.size();
 }
 
+void TodoList::reorder() {
+  int i = 1;
+  tmap tnew;
+  tmap::iterator it;
+
+  for (it = tasks.begin(); it != tasks.end(); ++it) {
+    tnew[i] = it->second;
+    i++;
+  }
+
+  tasks = tnew;
+  write();
+}
+
 void TodoList::parse() {
   tasks.clear();
 

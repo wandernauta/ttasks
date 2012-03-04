@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
       std::cout << "       t -e            # Open todo.txt in $EDITOR." << std::endl;
       std::cout << "       t -h            # Show this help text." << std::endl;
       std::cout << "       t -c            # Count the amount of items." << std::endl;
+      std::cout << "       t -r            # Reorder the items." << std::endl;
       std::cout << std::endl;
       exit(0);
     } else if (args[1] == "-e") {
@@ -30,6 +31,9 @@ int main(int argc, char* argv[]) {
     } else if (args[1] == "-c") {
       // Called as 't -c'. Count the amount of items in the list.
       std::cout << tl.count() << std::endl;
+    } else if (args[1] == "-r") {
+      // Called as 't -r'. Reorder the items.
+      tl.reorder();
     } else if (atoi(argv[1]) != 0) {
       // Called as 't 3' or similar. Erase the task.
       tl.erase(atoi(argv[1]));
